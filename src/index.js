@@ -1,7 +1,7 @@
 import Notiflix from 'notiflix';
 import SimpleLightbox from "simplelightbox";
 import PictureApiService from "./api.js";
-import LoadMoreBtn from "./loadMore.js"
+import LoadMoreBtn from "./loadMore.js";
 
 const refs = {
     form: document.getElementById('search-form'),
