@@ -48,12 +48,22 @@ async function onSubmit(event){
 }
 
 async function onBtnClick(){
-    const morePicture = await pictureApiService.fetchPictures()
-    renderMarkup(morePicture.hits)
+    try{
+        const morePicture = await pictureApiService.fetchPictures()
+        renderMarkup(morePicture.hits)
+        if(morePicture.hits.length >= morePicture.totalHits || morePicture.hits.length < 40 ){
+            Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
+            loadMoreBtn.hide();
+            return;
+        }
+    }catch(error){
+        console.log(error)
+    }
 }
 
 function clearPictureContainer (){
     refs.galleryContainer.innerHTML = ' ';
+    
 }
 
 
