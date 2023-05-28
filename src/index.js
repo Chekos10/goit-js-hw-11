@@ -1,5 +1,4 @@
 import Notiflix from 'notiflix';
-import SimpleLightbox from "simplelightbox";
 import PictureApiService from "./api.js";
 import LoadMoreBtn from "./loadMore.js";
 
@@ -35,7 +34,8 @@ async function onSubmit(event){
         }else if(getPicture.hits.length >= getPicture.totalHits){
             renderMarkup(getPicture.hits)
             loadMoreBtn.hide()
-            return Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
+            Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
+            return ''
         }else{
             renderMarkup(getPicture.hits)
             loadMoreBtn.show()
