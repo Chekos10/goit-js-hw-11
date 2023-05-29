@@ -39,6 +39,7 @@ async function onSubmit(event){
         }else{
             renderMarkup(getPicture.hits)
             loadMoreBtn.show()
+            
         }
         
     }catch(error){
@@ -51,7 +52,7 @@ async function onBtnClick(){
     try{
         const morePicture = await pictureApiService.fetchPictures()
         renderMarkup(morePicture.hits)
-        if(morePicture.hits.length >= morePicture.totalHits || morePicture.hits.length < 40 ){
+        if( morePicture.hits.length >= morePicture.totalHits || morePicture.hits.length < 40 ){
             Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
             loadMoreBtn.hide();
             return;
